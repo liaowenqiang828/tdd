@@ -26,15 +26,17 @@ public class Mommifier {
     public String insertMommyAfterVowels(String str) {
         int percent = counterPercentOfVowels(str);
         Stream<String> newStringArray = null;
-        if (percent > 30) {
-            ArrayList<String> stringArray = new ArrayList<>(Arrays.asList(str.split("")));
+        ArrayList<String> stringArray = new ArrayList<>(Arrays.asList(str.split("")));
 
+        if (percent > 30) {
             newStringArray = stringArray.stream().map((string) -> {
                 if (VOWELS.contains(string.toLowerCase())) {
                     string = string + "mommy";
                 }
                 return string;
             });
+        } else {
+            newStringArray = stringArray.stream();
         }
         return newStringArray.collect(Collectors.joining(""));
     }

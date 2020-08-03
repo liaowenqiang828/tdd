@@ -31,4 +31,14 @@ public class MommifierTest {
 
         assertEquals("amommybcdemommyf", result);
     }
+
+    @Test
+    void should_return_origin_string_if_percent_less_or_equal_to_30 () {
+        Mommifier mommifier = new Mommifier();
+        String str = "bbcdef";
+
+        String result = mommifier.insertMommyAfterVowels(str);
+
+        assertEquals("bbcdef", result);
+    }
 }
