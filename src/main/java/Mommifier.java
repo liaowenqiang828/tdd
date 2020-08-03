@@ -12,7 +12,7 @@ public class Mommifier {
         ArrayList<String> arrayString = new ArrayList<>(Arrays.asList(string.split("")));
 
         for (String str:arrayString) {
-            if (VOWELS.contains(str)) {
+            if (VOWELS.contains(str.toLowerCase())) {
                 vowelNumber += 1;
             }
         }

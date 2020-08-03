@@ -11,4 +11,14 @@ public class MommifierTest {
         
         assertEquals(33, result);
     }
+
+    @Test
+    void should_return_right_percent_result_when_string_contains_uppercase_letters () {
+        Mommifier mommifier = new Mommifier();
+        String str = "abcdEf";
+
+        int result = mommifier.counterPercentOfVowels(str);
+
+        assertEquals(33, result);
+    }
 }
