@@ -21,4 +21,14 @@ public class MommifierTest {
 
         assertEquals(33, result);
     }
+
+    @Test
+    void should_insert_mommy_for_each_vowel_if_percent_great_than_30 () {
+        Mommifier mommifier = new Mommifier();
+        String str = "abcdef";
+
+        String result = mommifier.insertMommyAfterVowels(str);
+
+        assertEquals("amommybcdemommyf", result);
+    }
 }

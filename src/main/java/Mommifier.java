@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Mommifier {
     final ArrayList<String> VOWELS = new ArrayList<>(Arrays.asList("a", "e", "i", "o", "u"));
@@ -19,5 +21,21 @@ public class Mommifier {
 
         int percent = vowelNumber * 100 / length;
         return  percent;
+    }
+
+    public String insertMommyAfterVowels(String str) {
+        int percent = counterPercentOfVowels(str);
+        Stream<String> newStringArray = null;
+        if (percent > 30) {
+            ArrayList<String> stringArray = new ArrayList<>(Arrays.asList(str.split("")));
+
+            newStringArray = stringArray.stream().map((string) -> {
+                if (VOWELS.contains(string.toLowerCase())) {
+                    string = string + "mommy";
+                }
+                return string;
+            });
+        }
+        return newStringArray.collect(Collectors.joining(""));
     }
 }
