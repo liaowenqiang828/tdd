@@ -41,4 +41,15 @@ public class MommifierTest {
 
         assertEquals("bbcdef", result);
     }
+
+    @Test
+    void should_insert_mommy_for_each_vowel_set_if_percent_great_than_30 () {
+        Mommifier mommifier = new Mommifier();
+        String str = "abcdeeef";
+
+        String result = mommifier.insertMommyAfterContiunedVowelsSet(str);
+
+        assertEquals("abcdeeemommyf", result);
+    }
+
 }

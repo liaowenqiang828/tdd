@@ -1,6 +1,7 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import com.sun.tools.javac.util.Iterators;
+
+import javax.imageio.spi.RegisterableService;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -40,4 +41,24 @@ public class Mommifier {
         }
         return newStringArray.collect(Collectors.joining(""));
     }
+
+    public String insertMommyAfterContiunedVowelsSet(String string) {
+        ArrayList<String> stringArray = new ArrayList<>(Arrays.asList(string.split("")));
+//        ArrayList<Integer> indexes = new ArrayList<>();
+
+        int count = 0;
+        for (String str:stringArray) {
+            if (VOWELS.contains(str)) {
+                count += 1;
+            } else {
+                if (count > 1) {
+//                    indexes.add(stringArray.indexOf(str) - 1);
+                    stringArray.set(stringArray.indexOf(str) - 1, stringArray.get(stringArray.indexOf(str) - 1) + "mommy");
+                }
+                count = 0;
+            }
+        }
+        return stringArray.stream().collect(Collectors.joining(""));
+    }
+
 }
